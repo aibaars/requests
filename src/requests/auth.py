@@ -169,6 +169,7 @@ class HTTPDigestAuth(AuthBase):
             def sha512_utf8(x):
                 if isinstance(x, str):
                     x = x.encode("utf-8")
+                    return hashlib.sha512(x).hexdigest()
                 return hashlib.sha512(x).hexdigest()
 
             hash_utf8 = sha512_utf8
